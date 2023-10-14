@@ -1,0 +1,19 @@
+# Files
+*~
+.DS_Store
+Thumbs.db
+memo.md
+
+# Build & Packages
+node_modules/
+parcel-*
+pnpm-*
+
+# IDE
+.idea/
+
+# Other
+*.log
+*.txt
+package-lock.json
+yarn.lock

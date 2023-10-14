@@ -1,0 +1,41 @@
+{
+  "name": "vue-app-link",
+  "version": "0.0.1-alpha.1",
+  "description": "Vue 3 component for creating animation-friendly router links. ",
+  "author": "ux-ui.pro",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ux-ui-pro/vue-app-link.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ux-ui-pro/vue-app-link/issues"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/vue-app-link.umd.cjs",
+  "module": "./dist/vue-app-link.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-app-link.js",
+      "require": "./dist/vue-app-link.umd.cjs"
+    },
+    "./index.css": "./dist/index.css"
+  },
+  "exclude": [
+    "src/App.vue",
+    "src/main.js"
+  ],
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^4.4.0",
+    "vite": "^4.4.11",
+    "vue": "^3.3.4"
+  },
+  "keywords": []
+}
