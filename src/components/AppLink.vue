@@ -63,23 +63,26 @@ export default {
 </script>
 
 <template>
-  <span
+  <router-link
+    v-if="!isChanged"
+    @click="handle"
+    :to="to"
     :class="{
       'link': true,
       'link-active': isActive,
       'link-throttled': !isThrottled,
     }"
   >
-    <router-link
-      v-if="!isChanged"
-      @click="handle"
-      :to="to"
-    >
-      <slot></slot>
-    </router-link>
+    <slot></slot>
+  </router-link>
 
-    <span v-else>
-      <slot></slot>
-    </span>
+  <span
+    v-else
+    :class="{
+      'link': true,
+      'link-active': isActive,
+    }"
+  >
+    <slot></slot>
   </span>
 </template>

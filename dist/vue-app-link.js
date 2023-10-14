@@ -1,9 +1,9 @@
-import { ref as c, computed as i, onMounted as f, watch as p, resolveComponent as k, openBlock as s, createElementBlock as u, normalizeClass as m, createBlock as _, withCtx as v, renderSlot as d } from "vue";
+import { ref as c, computed as s, onMounted as f, watch as k, resolveComponent as m, openBlock as i, createBlock as v, normalizeClass as u, withCtx as p, renderSlot as d, createElementBlock as _ } from "vue";
 import { useRoute as g } from "vue-router";
-const y = (t, n) => {
-  const o = t.__vccOpts || t;
-  for (const [e, a] of n)
-    o[e] = a;
+const y = (e, n) => {
+  const o = e.__vccOpts || e;
+  for (const [t, a] of n)
+    o[t] = a;
   return o;
 }, C = {
   name: "AppLink",
@@ -21,49 +21,52 @@ const y = (t, n) => {
       default: 50
     }
   },
-  setup(t) {
-    const n = g(), o = c(!1), e = c(!0), a = i(() => typeof t.to == "string" ? t.to : t.to.path), l = () => {
+  setup(e) {
+    const n = g(), o = c(!1), t = c(!0), a = s(() => typeof e.to == "string" ? e.to : e.to.path), l = () => {
       const h = a.value;
       setTimeout(() => {
         o.value = n.path === h;
-      }, t.changed);
+      }, e.changed);
     }, r = () => {
-      e.value && (e.value = !1, t.throttle > 0 ? setTimeout(() => {
-        e.value = !0;
-      }, t.throttle) : e.value = !0);
+      t.value && (t.value = !1, e.throttle > 0 ? setTimeout(() => {
+        t.value = !0;
+      }, e.throttle) : t.value = !0);
     };
-    return f(l), p(() => n.path, l), {
-      isActive: i(() => n.path === a.value),
+    return f(l), k(() => n.path, l), {
+      isActive: s(() => n.path === a.value),
       isChanged: o,
-      isThrottled: e,
+      isThrottled: t,
       handle: r
     };
   }
-}, A = { key: 1 };
-function T(t, n, o, e, a, l) {
-  const r = k("router-link");
-  return s(), u("span", {
-    class: m({
+};
+function A(e, n, o, t, a, l) {
+  const r = m("router-link");
+  return t.isChanged ? (i(), _("span", {
+    key: 1,
+    class: u({
       link: !0,
-      "link-active": e.isActive,
-      "link-throttled": !e.isThrottled
+      "link-active": t.isActive
     })
   }, [
-    e.isChanged ? (s(), u("span", A, [
-      d(t.$slots, "default")
-    ])) : (s(), _(r, {
-      key: 0,
-      onClick: e.handle,
-      to: o.to
-    }, {
-      default: v(() => [
-        d(t.$slots, "default")
-      ]),
-      _: 3
-    }, 8, ["onClick", "to"]))
-  ], 2);
+    d(e.$slots, "default")
+  ], 2)) : (i(), v(r, {
+    key: 0,
+    onClick: t.handle,
+    to: o.to,
+    class: u({
+      link: !0,
+      "link-active": t.isActive,
+      "link-throttled": !t.isThrottled
+    })
+  }, {
+    default: p(() => [
+      d(e.$slots, "default")
+    ]),
+    _: 3
+  }, 8, ["onClick", "to", "class"]));
 }
-const w = /* @__PURE__ */ y(C, [["render", T]]);
+const B = /* @__PURE__ */ y(C, [["render", A]]);
 export {
-  w as default
+  B as default
 };
